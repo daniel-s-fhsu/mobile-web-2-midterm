@@ -25,7 +25,6 @@ export default function App() {
         category: taskInput.category.trim(),
         image: taskInput.image.trim(),
         dueDate: taskInput.dueDate.trim(),
-        isCompleted: false,
       };
 
       return [...prevTasks, newTask];

@@ -7,7 +7,6 @@
       "description": "Vacuum and dust all rooms.",
       "category": "Home",
       "image": "https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isCompleted": false,
       "dueDate": "2026-03-25"
     },
     {
@@ -16,7 +15,6 @@
       "description": "Buy groceries at Dillon's.",
       "category": "Errands",
       "image": "https://images.unsplash.com/photo-1604719312566-8912e9227c6a?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isCompleted": false,
       "dueDate": "2026-03-25"
     },
     {
@@ -25,8 +23,6 @@
       "description": "Complete the final reporting for project.",
       "category": "Work",
       "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "isCompleted": false,
       "dueDate": "2026-03-26"
     }
   ]
-

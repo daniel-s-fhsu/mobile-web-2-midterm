@@ -8,9 +8,7 @@ export default function TaskCard({ task, onPress }) {
       <View style={styles.content}>
         <Text style={styles.title}>{task.title}</Text>
         <Text style={styles.description}>{task.description}</Text>
-        <Text style={styles.tag}>
-          {task.category}    ||    {task.isCompleted ? "Done" : "To Do"}
-        </Text>
+        <Text style={styles.tag}>{task.category}</Text>
       </View>
     </Pressable>
   );

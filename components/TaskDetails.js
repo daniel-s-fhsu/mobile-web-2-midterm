@@ -19,7 +19,6 @@ export default function TaskDetails({ task, onBack }) {
         <View style={styles.infoBlock}>
           <Text style={styles.title}>{task.title}</Text>
           <Text style={styles.detailText}>Type: {task.category}</Text>
-          <Text style={styles.detailText}>Status: {task.isCompleted ? "Done" : "To Do"}</Text>
           <Text style={styles.detailText}>Due by: {task.dueDate}</Text>
         </View>
       </View>
