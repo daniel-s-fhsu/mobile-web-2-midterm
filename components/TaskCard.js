@@ -1,25 +1,25 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function TaskCard({ task }) {
-  const isComplete = Boolean(task?.isCompleted ?? task?.completed);
-  const taskType = task?.category ?? task?.priority ?? "General";
+export default function TaskCard({ task, onPress }) {
+
 
   return (
-    <View style={styles.card}>
+    <Pressable style={styles.card} onPress={onPress}>
+      {/* does the image actually load (site down protection) */}
       {!!task?.image && (
         <Image source={{ uri: task.image }} style={styles.image} resizeMode="cover" />
       )}
 
       <View style={styles.content}>
-        <Text style={styles.title}>{task?.title ?? "Untitled Task"}</Text>
+        <Text style={styles.title}>{task.title}</Text>
         {!!task?.description && (
           <Text style={styles.description}>{task.description}</Text>
         )}
         <Text style={styles.tag}>
-          {taskType}    ||    {isComplete ? "Done" : "To Do"}
+          {task.category}    ||    {task.isComplete ? "Done" : "To Do"}
         </Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
