@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useState } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import initialTasks from './data/tasks.json';
 import AddTaskPage from './pages/AddTaskPage';
 import HomePage from './pages/HomePage';
@@ -11,6 +12,10 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [tasks, setTasks] = useState(initialTasks);
+
+  // React native cannot modify JSON files that are bundled as part of the app
+  // There is no permanance to the changes made to the tasks, but it will work for testing purposes
+  // Presumably the tasks would be stored in a database, and this would be fixed in a final version
 
   const handleAddTask = (taskInput) => {
     setTasks((prevTasks) => {
@@ -31,18 +36,30 @@ export default function App() {
     });
   };
 
+  const handleDeleteTask = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home">
-          {(props) => <HomePage {...props} tasks={tasks} />}
-        </Stack.Screen>
-        <Stack.Screen name="Task Details" component={TaskDetailsPage} />
-        <Stack.Screen name="Add Task">
-          {(props) => <AddTaskPage {...props} onAddTask={handleAddTask} />}
-        </Stack.Screen>
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home">
+            {(props) => (
+              <HomePage
+                {...props}
+                tasks={tasks}
+                onTaskDelete={handleDeleteTask}
+              />
+            )}
+          </Stack.Screen>
+          <Stack.Screen name="Task Details" component={TaskDetailsPage} />
+          <Stack.Screen name="Add Task">
+            {(props) => <AddTaskPage {...props} onAddTask={handleAddTask} />}
+          </Stack.Screen>
+        </Stack.Navigator>
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }

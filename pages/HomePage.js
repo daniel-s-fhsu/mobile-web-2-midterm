@@ -2,7 +2,7 @@ import { useLayoutEffect } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import TaskList from "../components/TaskList";
 
-export default function HomePage({ navigation, tasks }) {
+export default function HomePage({ navigation, tasks, onTaskDelete }) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -19,7 +19,11 @@ export default function HomePage({ navigation, tasks }) {
 
   return (
     <View style={styles.container}>
-      <TaskList tasks={tasks} onTaskPress={handleTaskPress} />
+      <TaskList
+        tasks={tasks}
+        onTaskPress={handleTaskPress}
+        onTaskDelete={onTaskDelete}
+      />
     </View>
   );
 }
