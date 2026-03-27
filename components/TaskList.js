@@ -1,12 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import Tasks from "../data/tasks.json";
+import initialTasks from "../data/tasks.json";
 import TaskCard from "./TaskCard";
 
-export default function TaskList({ onTaskPress }) {
+export default function TaskList({ tasks = initialTasks, onTaskPress }) {
   return (
     <View style={styles.container}>
       <FlatList
-        data={Tasks}
+        data={tasks}
         keyExtractor={(item, index) => String(item?.id ?? index)}
         renderItem={({ item }) => (
           <TaskCard task={item} onPress={() => onTaskPress?.(item)} />

@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Home",
+    "value": "Home"
+  },
+  {
+    "label": "Work",
+    "value": "Work"
+  },
+  {
+    "label": "Errands",
+    "value": "Errands"
+  },
+  {
+    "label": "School",
+    "value": "School"
+  },
+  {
+    "label": "Personal",
+    "value": "Personal"
+  }
+]

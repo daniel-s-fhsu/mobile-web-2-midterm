@@ -3,14 +3,13 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 export default function TaskDetails({ task, onBack }) {
   if (!task) return null;
 
-
   return (
     <View style={styles.container}>
-
+      {!!onBack && (
         <Pressable onPress={onBack} style={styles.backButton}>
           <Text style={styles.backText}>Back</Text>
         </Pressable>
-
+      )}
 
       <View style={styles.topRow}>
         {!!task?.image && (
@@ -20,13 +19,15 @@ export default function TaskDetails({ task, onBack }) {
         <View style={styles.infoBlock}>
           <Text style={styles.title}>{task.title}</Text>
           <Text style={styles.detailText}>Type: {task.category}</Text>
-          <Text style={styles.detailText}>Status: {task.isComplete}</Text>
+          <Text style={styles.detailText}>Status: {task.isCompleted ? "Done" : "To Do"}</Text>
           <Text style={styles.detailText}>Due by: {task.dueDate}</Text>
         </View>
       </View>
 
 
+      {!!task?.description && (
         <Text style={styles.description}>{task.description}</Text>
+      )}
 
     </View>
   );
