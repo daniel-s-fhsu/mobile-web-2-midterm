@@ -7,7 +7,7 @@ export default function HomePage({ navigation, tasks, onTaskDelete }) {
     navigation.setOptions({
       headerRight: () => (
         <Pressable onPress={() => navigation.navigate("Add Task")} style={styles.addButton}>
-          <Text style={styles.addButtonText}>+</Text>
+          <Text style={styles.addButtonText}>New</Text>
         </Pressable>
       ),
     });
@@ -34,17 +34,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   addButton: {
-    width: 28,
+    minWidth: 52,
     height: 28,
     borderRadius: 14,
     borderWidth: 1,
     borderColor: "#ddd",
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 10,
   },
   addButtonText: {
-    fontSize: 20,
-    lineHeight: 22,
+    fontSize: 13,
+    lineHeight: 16,
+    fontWeight: "600",
     color: "#222",
+    textAlign: "center",
+    includeFontPadding: false,
   },
 });

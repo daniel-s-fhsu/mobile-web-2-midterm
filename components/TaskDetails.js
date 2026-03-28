@@ -1,16 +1,10 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
-export default function TaskDetails({ task, onBack }) {
+export default function TaskDetails({ task }) {
   if (!task) return null;
 
   return (
     <View style={styles.container}>
-      {!!onBack && (
-        <Pressable onPress={onBack} style={styles.backButton}>
-          <Text style={styles.backText}>Back</Text>
-        </Pressable>
-      )}
-
       <View style={styles.topRow}>
         {!!task?.image && (
           <Image source={{ uri: task.image }} style={styles.image} resizeMode="cover" />
@@ -36,19 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-  },
-  backButton: {
-    alignSelf: "flex-start",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 6,
-    marginBottom: 14,
-  },
-  backText: {
-    fontSize: 14,
-    color: "#333",
   },
   topRow: {
     flexDirection: "row",

@@ -53,7 +53,9 @@ export default function App() {
               />
             )}
           </Stack.Screen>
-          <Stack.Screen name="Task Details" component={TaskDetailsPage} />
+          <Stack.Screen name="Task Details">
+            {(props) => <TaskDetailsPage {...props} onTaskDelete={handleDeleteTask} />}
+          </Stack.Screen>
           <Stack.Screen name="Add Task">
             {(props) => <AddTaskPage {...props} onAddTask={handleAddTask} />}
           </Stack.Screen>
