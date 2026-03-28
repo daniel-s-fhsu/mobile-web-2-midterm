@@ -4,6 +4,8 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import categoryItemsJson from "../data/categories.json";
 
+// Form that shows inputs (all required) for creating a new task
+
 const webDateInputStyle = {
   width: "100%",
   border: "1px solid #ddd",
@@ -52,6 +54,7 @@ export default function AddTaskPage({ navigation, onAddTask }) {
     }
   };
 
+  // save cleans all fields and calls onAddTask
   const handleSave = () => {
     const trimmedTitle = title.trim();
     const trimmedDescription = description.trim();
@@ -105,6 +108,7 @@ export default function AddTaskPage({ navigation, onAddTask }) {
         />
       </View>
 
+      {/* Dropdown is populated from data/categories.json */}
       <View style={[styles.field, styles.categoryField]}>
         <Text style={styles.label}>Category</Text>
         <DropDownPicker

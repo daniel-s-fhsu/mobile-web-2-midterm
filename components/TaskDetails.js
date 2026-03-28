@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 export default function TaskDetails({ task }) {
   if (!task) return null;
 
+  // Task details shows details of selected task
   return (
     <View style={styles.container}>
       <View style={styles.topRow}>

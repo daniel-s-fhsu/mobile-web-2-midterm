@@ -36,6 +36,7 @@ export default function App() {
     });
   };
 
+  // delete a task by task id
   const handleDeleteTask = (taskId) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };

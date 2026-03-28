@@ -6,6 +6,7 @@ import TaskCard from "./TaskCard";
 export default function TaskList({ tasks = initialTasks, onTaskPress, onTaskDelete }) {
   const renderRightActions = (taskId) => {
     return (
+      // Swipable action deletes a task, swipe left to reveal red delete text
       <Pressable style={styles.deleteAction} onPress={() => onTaskDelete?.(taskId)}>
         <Text style={styles.deleteText}>Delete</Text>
       </Pressable>
@@ -14,6 +15,8 @@ export default function TaskList({ tasks = initialTasks, onTaskPress, onTaskDele
 
   return (
     <View style={styles.container}>
+      {/* FlatList component
+      displays data/tasks.json as a list of clickable/swipable components */}
       <FlatList
         data={tasks}
         keyExtractor={(item, index) => String(item?.id ?? index)}

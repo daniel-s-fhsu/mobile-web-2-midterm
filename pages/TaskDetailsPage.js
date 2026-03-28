@@ -5,11 +5,13 @@ import TaskDetails from "../components/TaskDetails";
 export default function TaskDetailsPage({ route, navigation, onTaskDelete }) {
   const task = route?.params?.task;
 
+  // button on the header deletes current task
   const handleDelete = () => {
     onTaskDelete?.(task.id);
     navigation.goBack();
   };
 
+  // button and text show on the header
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () =>
